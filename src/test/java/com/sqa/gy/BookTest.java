@@ -71,6 +71,15 @@ public class BookTest {
 				|| quote.equalsIgnoreCase(expected3) || quote.equalsIgnoreCase(expected4)));
 	}
 
+	@Test
+	public void returnPercentOfBookReadTest() {
+		Book book7 = new Book("Blind Willow, Sleeping Woman", "Haruki Murakami", "Philip Gabriel and Jay Rubin",
+				Genre.FANTASY, false, 24, 384, 12.44, ReadingStatus.READING);
+		int expected = 33;
+		System.out.println(book7.returnPercentOfBookRead(128) + "% read");
+		Assert.assertTrue("Correct percent read not returned", expected == book7.returnPercentOfBookRead(128));
+	}
+
 	@Test // Level 3 Constructor but in English
 	public void SayYoureOneOfThemTest() {
 		String expected = "\nSay You\'re One Of Them is a realistic fiction book written by Uwem Akpan. \nThis book contains 5 stories, has 294 pages, and costs $12.85. \nYou hope to read this book. ";
@@ -94,7 +103,7 @@ public class BookTest {
 	}
 
 	@Test
-	public void updateBookRecordInfo() {
+	public void updateBookRecordInfoTest() {
 		Book book6 = new Book("1Q84", "Haruki Murakami", Genre.FANTASY);
 		String expected = "\n1Q84 is a fantasy book written by Haruki Murakami. \nThis book is one story, not a collection of stories, has 928 pages, and costs $10.09. ";
 		System.out.println("\nOriginal book record:" + book6);
@@ -103,15 +112,6 @@ public class BookTest {
 		System.out.println("Updated book record:" + book6);
 		System.out.println("-----------------------------");
 		Assert.assertEquals("Record not updated correctly.", expected, book6.toString());
-	}
-
-	@Test
-	private void returnPercentOfBookRead() {
-		Book book7 = new Book("Blind Willow, Sleeping Woman", "Haruki Murakami", "Philip Gabriel and Jay Rubin",
-				Genre.FANTASY, false, 24, 384, 12.44, ReadingStatus.READING);
-		int expected = 33;
-		System.out.println(book7.returnPercentOfBookRead(128) + "% read");
-		Assert.assertTrue("Correct percent read not returned", expected == book7.returnPercentOfBookRead(128));
 	}
 
 	private void setupForTestPrintRandomQuote(Book book5) {
